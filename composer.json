@@ -1,0 +1,19 @@
+{
+    "name": "devon/alecad-plugin",
+    "description": "Awesome plugin example",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "DEVON DAVIAU",
+            "email": "devon.daviau@yahoo.ca"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./includes"
+        }
+    }
+}
