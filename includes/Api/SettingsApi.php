@@ -21,7 +21,7 @@ class SettingsApi
 		return $this;
 	}
 
-	private function addAdminMenu() {
+	public function addAdminMenu() {
 		foreach($this->admin_pages as $page) {
 			add_menu_page($page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], $page['callback'], $page['icon_url'], $page['position']);
 		}
