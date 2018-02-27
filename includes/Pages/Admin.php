@@ -7,12 +7,7 @@ namespace Inc\Pages;
 
 use \Inc\Api\SettingsApi;
 use \Inc\Base\BaseController;
-use \Inc\Api\Callbacks\CptCallbacks;
 use \Inc\Api\Callbacks\AdminCallbacks;
-use \Inc\Api\Callbacks\WidgetsCallbacks;
-use \Inc\Api\Callbacks\TaxonomiesCallbacks;
-
-
 
 
 class Admin extends BaseController
