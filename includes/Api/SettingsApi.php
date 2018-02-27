@@ -18,6 +18,10 @@ class SettingsApi
 		if (! empty($this->admin_pages)) {
 			add_action('admin_menu', array($this, 'addAdminMenu'));
 		}
+
+		if(!empty($this->settings)) {
+			add_action('admin_init', array($this, 'registerCustomFields'));
+		}
 	}
 
 	public function addPages(array $pages) {
@@ -63,6 +67,24 @@ class SettingsApi
 		foreach($this->admin_subpages as $page) {
 			add_submenu_page($page['parent_slug'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], $page['callback']);
 		}
+	}
+
+	public function setSettings(array $settings) {
+		$this->settings = $settings;
+
+		return $this;
+	}
+
+	public function setSections(array $sections) {
+		$this->sections = $sections;
+
+		return $this;
+	}
+
+	public function setFields(array $fields) {
+		$this->fields = $fields;
+
+		return $this;
 	}
 
 	public function registerCustomFields() {
