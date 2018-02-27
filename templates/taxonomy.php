@@ -1,0 +1,1 @@
+<h1>Taxonomies Dashboard</h1>
