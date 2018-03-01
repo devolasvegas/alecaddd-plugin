@@ -3,11 +3,13 @@ window.addEventListener('load', function() {
     // Store the tabs in a variable
     var tabs = document.querySelectorAll('.nav-tabs > li');
 
+    // Loop ever tabs to add event listener
     for(var i = 0; i < tabs.length; i++) {
         var tab = tabs[i];
         tab.addEventListener('click', switchTab);
     }
 
+    // Tabs click handler callback
     function switchTab(e) {
 
         e.preventDefault();
