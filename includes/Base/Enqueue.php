@@ -17,8 +17,8 @@ class Enqueue extends BaseController
 
 	function enqueue() {
 		// enqueue all our scripts
-		wp_enqueue_style('alecadpluginstyle', $this->plugin_url . 'assets/my-style.css');
-		wp_enqueue_script('alecadpluginscript', $this->plugin_url . 'assets/my-script.js');
+		wp_enqueue_style('alecadpluginstyle', $this->plugin_url . 'assets/mystyle.css');
+		wp_enqueue_script('alecadpluginscript', $this->plugin_url . 'assets/myscript.js');
 
 	}
 

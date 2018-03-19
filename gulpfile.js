@@ -71,7 +71,7 @@ gulp.task('js', function() {
         presets: ['env']
     })
     .bundle()
-    .pipe(source('myscripts.js'))
+    .pipe(source('myscript.js'))
     .pipe(buffer())
     .pipe(gulpif(options.has('production'), stripDebug()))
     .pipe(sourcemaps.init({
@@ -89,7 +89,7 @@ function triggerPlumber(src, url) {
     .pipe(gulp.dest(url));
 }
 
-gulp.task('default', ['styles', 'browser-sync'], function() {
+gulp.task('default', ['styles', 'js'], function() {
     gulp.src(jsURL + 'myscript.min.js')
         .pipe(notify({
             message: 'Assets Compiled.'
