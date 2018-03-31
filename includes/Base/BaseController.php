@@ -28,6 +28,6 @@ class BaseController
 			'membership_manager',
 			'chat_manager'
 
-		)
+		);
 	}
 }
