@@ -18,15 +18,15 @@ class BaseController
 		$this->plugin = plugin_basename(dirname(__FILE__, 3)) . '/alecad-plugin.php';
 
 		$this->managers = array(
-			'cpt_manager',
-			'taxonomy_manager',
-			'media_widget',
-			'gallery_manager',
-			'testimonial_manager',
-			'templates_manager',
-			'login_manager',
-			'membership_manager',
-			'chat_manager'
+			'cpt_manager' => 'Activate CPT Manager',
+			'taxonomy_manager' => 'Activate Taxonomy Manager',
+			'media_widget' => 'Activate Media Widget',
+			'gallery_manager' => 'Activate Gallery Manager',
+			'testimonial_manager' => 'Activate Testimonial Manager',
+			'templates_manager' => 'Activate Templates Manager',
+			'login_manager' => 'Activate Ajax Login/Signup',
+			'membership_manager' => 'Activaet Membership Manager',
+			'chat_manager' => 'Activate Chat Manager'
 
 		);
 	}
