@@ -19,7 +19,7 @@ class AuthController extends BaseController
     public function register() {
 
         $option = get_option('alecad_plugin');
-        $activated = isset($option['cpt_manager']) ? $option['cpt_manager'] : false;
+        $activated = isset($option['login_manager']) ? $option['login_manager'] : false;
 
         if(!$activated) {
             return;
@@ -40,25 +40,13 @@ class AuthController extends BaseController
 		$this->subpages = array(
 			array(
 				'parent_slug' => 'alecad_plugin',
-				'page_title' => 'Custom Post Types',
-				'menu_title' => 'CPT Manager',
+				'page_title' => 'Login Manager',
+				'menu_title' => 'Login Manager',
 				'capability' => 'manage_options',
-				'menu_slug' => 'alecad_cpt',
+				'menu_slug' => 'alecad_auth',
 				'callback' => array($this->callbacks, 'adminCpt')
 			)
 		);
 	}
 
-    public function activate() {
-        register_post_type('alecad_products',
-            array(
-                'labels' => array(
-                    'name' => 'Products',
-                    'singular_name' => 'Product'
-                ),
-                'public' => true,
-                'has_archive' => true
-            )
-        );
-    }
 }
