@@ -25,7 +25,7 @@ class BaseController
 			'testimonial_manager' => 'Activate Testimonial Manager',
 			'templates_manager' => 'Activate Templates Manager',
 			'login_manager' => 'Activate Ajax Login/Signup',
-			'membership_manager' => 'Activaet Membership Manager',
+			'membership_manager' => 'Activate Membership Manager',
 			'chat_manager' => 'Activate Chat Manager'
 
 		);
