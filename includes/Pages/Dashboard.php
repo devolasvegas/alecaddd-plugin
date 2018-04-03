@@ -18,7 +18,7 @@ class Dashboard extends BaseController
 	public $callbacks;
 	public $callbacks_mngr;
 	public $pages = array();
-	public $subpages = array();
+	// public $subpages = array();
 
 	public function register() {
 		$this->settings = new SettingsApi();
@@ -29,13 +29,13 @@ class Dashboard extends BaseController
 
 		$this->setPages();
 
-		$this->setSubpages();
+		// $this->setSubpages();
 
 		$this->setSettings();
 		$this->setSections();
 		$this->setFields();
 
-		$this->settings->addPages($this->pages)->withSubPage('Dashboard')->addSubPages($this->subpages)->register();
+		$this->settings->addPages($this->pages)->withSubPage('Dashboard')->register();
 	}
 
 	public function setPages() {
@@ -52,34 +52,34 @@ class Dashboard extends BaseController
 		);
 	}
 
-	public function setSubpages( ){
-		$this->subpages = array(
-			array(
-				'parent_slug' => 'alecad_plugin',
-				'page_title' => 'Custom Post Types',
-				'menu_title' => 'CPT',
-				'capability' => 'manage_options',
-				'menu_slug' => 'alecad_cpt',
-				'callback' => array($this->callbacks, 'adminCpt')
-			),
-			array(
-				'parent_slug' => 'alecad_plugin',
-				'page_title' => 'Taxonomies',
-				'menu_title' => 'Taxonomies',
-				'capability' => 'manage_options',
-				'menu_slug' => 'alecad_taxonomies',
-				'callback' => array($this->callbacks, 'adminTaxonomy')
-			),
-			array(
-				'parent_slug' => 'alecad_plugin',
-				'page_title' => 'Widgets',
-				'menu_title' => 'Widgets',
-				'capability' => 'manage_options',
-				'menu_slug' => 'alecad_widgets',
-				'callback' => array($this->callbacks, 'adminWidget')
-			)
-		);
-	}
+	// public function setSubpages( ){
+	// 	$this->subpages = array(
+	// 		array(
+	// 			'parent_slug' => 'alecad_plugin',
+	// 			'page_title' => 'Custom Post Types',
+	// 			'menu_title' => 'CPT',
+	// 			'capability' => 'manage_options',
+	// 			'menu_slug' => 'alecad_cpt',
+	// 			'callback' => array($this->callbacks, 'adminCpt')
+	// 		),
+	// 		array(
+	// 			'parent_slug' => 'alecad_plugin',
+	// 			'page_title' => 'Taxonomies',
+	// 			'menu_title' => 'Taxonomies',
+	// 			'capability' => 'manage_options',
+	// 			'menu_slug' => 'alecad_taxonomies',
+	// 			'callback' => array($this->callbacks, 'adminTaxonomy')
+	// 		),
+	// 		array(
+	// 			'parent_slug' => 'alecad_plugin',
+	// 			'page_title' => 'Widgets',
+	// 			'menu_title' => 'Widgets',
+	// 			'capability' => 'manage_options',
+	// 			'menu_slug' => 'alecad_widgets',
+	// 			'callback' => array($this->callbacks, 'adminWidget')
+	// 		)
+	// 	);
+	// }
 
 	public function setSettings() {
 
