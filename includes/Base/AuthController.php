@@ -33,7 +33,6 @@ class AuthController extends BaseController
 
         $this->settings->addSubPages($this->subpages)->register();
 
-        add_action('init', array($this, 'activate'));
     }
 
     public function setSubpages( ){
@@ -44,7 +43,7 @@ class AuthController extends BaseController
 				'menu_title' => 'Login Manager',
 				'capability' => 'manage_options',
 				'menu_slug' => 'alecad_auth',
-				'callback' => array($this->callbacks, 'adminCpt')
+				'callback' => array($this->callbacks, 'adminAuth')
 			)
 		);
 	}
