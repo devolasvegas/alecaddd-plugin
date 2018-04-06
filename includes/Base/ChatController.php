@@ -18,7 +18,7 @@ class ChatController extends BaseController
 
     public function register() {
 
-        if(!$this->activated('membership_manager')) {
+        if(!$this->activated('chat_manager')) {
             return;
         }
         
@@ -36,11 +36,11 @@ class ChatController extends BaseController
 		$this->subpages = array(
 			array(
 				'parent_slug' => 'alecad_plugin',
-				'page_title' => 'Membership Manager',
-				'menu_title' => 'Membership Manager',
+				'page_title' => 'Chat Manager',
+				'menu_title' => 'Chat Manager',
 				'capability' => 'manage_options',
-				'menu_slug' => 'alecad_membership',
-				'callback' => array($this->callbacks, 'adminMembership')
+				'menu_slug' => 'alecad_chat',
+				'callback' => array($this->callbacks, 'adminChat')
 			)
 		);
 	}

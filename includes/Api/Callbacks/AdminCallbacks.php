@@ -45,7 +45,9 @@ class AdminCallbacks extends BaseController
 		return require_once("$this->plugin_path/templates/membership.php");
 	}
 
-
+	public function adminChat() {
+		return require_once("$this->plugin_path/templates/chat.php");
+	}
 
 	// public function alecadOptionsGroup($input) {
 	// 	return $input;
