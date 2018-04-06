@@ -29,6 +29,11 @@ class AdminCallbacks extends BaseController
 		return require_once("$this->plugin_path/templates/widget.php");
 	}
 
+	public function adminGallery() {
+		return require_once("$this->plugin_path/templates/gallery.php");
+	}
+
+
 	// public function alecadOptionsGroup($input) {
 	// 	return $input;
 	// }

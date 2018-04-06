@@ -1,0 +1,1 @@
+<h1>Gallery Dashboard</h1>

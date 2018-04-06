@@ -33,7 +33,6 @@ class CustomTaxonomyController extends BaseController
 
         $this->settings->addSubPages($this->subpages)->register();
 
-        add_action('init', array($this, 'activate'));
     }
 
     public function setSubpages( ){
