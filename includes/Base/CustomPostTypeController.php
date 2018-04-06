@@ -14,6 +14,7 @@ class CustomPostTypeController extends BaseController
 {
     public $settings;
     public $callbacks;
+    public $custom_post_types = array();
 	public $subpages = array();
 
     public function register() {
@@ -33,7 +34,11 @@ class CustomPostTypeController extends BaseController
 
         $this->settings->addSubPages($this->subpages)->register();
 
-        add_action('init', array($this, 'activate'));
+        $this->storeCustomPostTypes();
+
+        if(!empty($this->custom_post_types)) {
+            add_action('init', array($this, 'registerCustomPostTypes'));
+        }
     }
 
     public function setSubpages( ){
@@ -47,18 +52,33 @@ class CustomPostTypeController extends BaseController
 				'callback' => array($this->callbacks, 'adminCpt')
 			)
 		);
-	}
+    }
+    
+    public function storeCustomPostTypes() {
 
-    public function activate() {
-        register_post_type('alecad_products',
-            array(
-                'labels' => array(
-                    'name' => 'Products',
-                    'singular_name' => 'Product'
-                ),
-                'public' => true,
-                'has_archive' => true
-            )
+        $this->custom_post_types[] = array(
+            'post_type' => 'alecad_product',
+            'name' => 'Products',
+            'singular_name' => 'Product',
+            'public' => true,
+            'has_archive' => true
         );
+    }
+
+    public function registerCustomPostTypes() {
+
+        foreach($this->custom_post_types as $post_type) {
+                register_post_type($post_type['post_type'],
+                array(
+                    'labels' => array(
+                        'name' => $post_type['name'],
+                        'singular_name' => $post_type['singular_name']
+                    ),
+                    'public' => $post_type['public'],
+                    'has_archive' => $post_type['has_archive']
+                )
+            );
+        }
+    
     }
 }
