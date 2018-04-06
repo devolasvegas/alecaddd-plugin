@@ -17,6 +17,8 @@ final class Init
 			Base\Enqueue::class,
 			Base\SettingsLinks::class,
 			Base\CustomPostTypeController::class,
+			Base\CustomTaxonomyController::class,
+			Base\WidgetController::class,
 			Base\AuthController::class
 		];
 	}
@@ -26,7 +28,7 @@ final class Init
 	 * and call the register() method if it exists
 	 * @return null
 	 */
-	public static function register_services() {
+	public static function register_alecad_services() {
 		foreach (self::get_services() as $class) {
 			$service = self::instantiate($class);
 			if(method_exists($service, 'register')) {

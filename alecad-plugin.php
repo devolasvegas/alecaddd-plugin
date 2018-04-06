@@ -41,5 +41,5 @@ register_deactivation_hook(__FILE__, 'deactivate_alecad_plugin');
 
 // Initialize the core classes of the plugin
 if (class_exists('Inc\\Init')) {
-	Inc\Init::register_services();
+	Inc\Init::register_alecad_services();
 }
