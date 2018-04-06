@@ -18,7 +18,7 @@ class MembershipController extends BaseController
 
     public function register() {
 
-        if(!$this->activated('templates_manager')) {
+        if(!$this->activated('membership_manager')) {
             return;
         }
         
@@ -36,11 +36,11 @@ class MembershipController extends BaseController
 		$this->subpages = array(
 			array(
 				'parent_slug' => 'alecad_plugin',
-				'page_title' => 'Templates Manager',
-				'menu_title' => 'Templates Manager',
+				'page_title' => 'Membership Manager',
+				'menu_title' => 'Membership Manager',
 				'capability' => 'manage_options',
-				'menu_slug' => 'alecad_templates',
-				'callback' => array($this->callbacks, 'adminTemplates')
+				'menu_slug' => 'alecad_membership',
+				'callback' => array($this->callbacks, 'adminMembership')
 			)
 		);
 	}

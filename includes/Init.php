@@ -23,7 +23,8 @@ final class Init
 			Base\TestimonialController::class,
 			Base\TemplateController::class,
 			Base\AuthController::class,
-			Base\MembershipController::class
+			Base\MembershipController::class,
+			Base\ChatController::class
 		];
 	}
 

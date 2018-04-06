@@ -41,6 +41,11 @@ class AdminCallbacks extends BaseController
 		return require_once("$this->plugin_path/templates/template.php");
 	}
 
+	public function adminMembership() {
+		return require_once("$this->plugin_path/templates/membership.php");
+	}
+
+
 
 	// public function alecadOptionsGroup($input) {
 	// 	return $input;
