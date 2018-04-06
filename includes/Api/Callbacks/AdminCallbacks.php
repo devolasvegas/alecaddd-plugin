@@ -33,6 +33,10 @@ class AdminCallbacks extends BaseController
 		return require_once("$this->plugin_path/templates/gallery.php");
 	}
 
+	public function adminTestimonial() {
+		return require_once("$this->plugin_path/templates/testimonial.php");
+	}
+
 
 	// public function alecadOptionsGroup($input) {
 	// 	return $input;
