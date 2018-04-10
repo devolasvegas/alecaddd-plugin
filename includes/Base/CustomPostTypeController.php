@@ -33,11 +33,9 @@ class CustomPostTypeController extends BaseController
 
         $this->callbacks = new AdminCallbacks();
 
-        $this->$cpt_callbacks = new CptCallbacks();
+        $this->cpt_callbacks = new CptCallbacks();
 
         $this->setSubpages();
-
-        $this->settings->addSubPages($this->subpages)->register();
 
         $this->setSettings();
 
@@ -45,11 +43,26 @@ class CustomPostTypeController extends BaseController
 
         $this->setFields();
 
+        $this->settings->addSubPages($this->subpages)->register();
+
         $this->storeCustomPostTypes();
 
         if(!empty($this->custom_post_types)) {
             add_action('init', array($this, 'registerCustomPostTypes'));
         }
+    }
+
+    public function setSubpages( ){
+		$this->subpages = array(
+			array(
+				'parent_slug' => 'alecad_plugin',
+				'page_title' => 'Custom Post Types',
+				'menu_title' => 'CPT Manager',
+				'capability' => 'manage_options',
+				'menu_slug' => 'alecad_cpt',
+				'callback' => array($this->callbacks, 'adminCpt')
+			)
+		);
     }
 
     public function setSettings() {
@@ -70,7 +83,7 @@ class CustomPostTypeController extends BaseController
 		$args = array(
 			array(
 				'id' => 'alecad_cpt_index',
-				'title' => 'Cukstom Post Type Manager',
+				'title' => 'Custom Post Type Manager',
 				'callback' => array($this->cpt_callbacks, 'cptSectionManager'),
 				'page' => 'alecad_cpt'
 			)
@@ -79,19 +92,6 @@ class CustomPostTypeController extends BaseController
 		$this->settings->setSections($args);
 	}
 
-    public function setSubpages( ){
-		$this->subpages = array(
-			array(
-				'parent_slug' => 'alecad_plugin',
-				'page_title' => 'Custom Post Types',
-				'menu_title' => 'CPT Manager',
-				'capability' => 'manage_options',
-				'menu_slug' => 'alecad_cpt',
-				'callback' => array($this->callbacks, 'adminCpt')
-			)
-		);
-    }
-
     public function setFields() {
 
 		$args = array(
@@ -99,40 +99,43 @@ class CustomPostTypeController extends BaseController
 				'id' => 'post_type',
 				'title' => 'Custom Post Type ID',
 				'callback' => array($this->cpt_callbacks, 'textField'),
-				'page' => 'alecad_plugin',
+				'page' => 'alecad_cpt',
 				'section' => 'alecad_cpt_index',
 				'args' => array(
 					'option_name' => 'alecad_plugin_cpt',
-					'label_for' => 'post_type'
+                    'label_for' => 'post_type',
+                    'placeholder' => 'e.g. product'
                 )
             ),
             array(
                 'id' => 'singular_name',
                 'title' => 'Singular Name',
                 'callback' => array($this->cpt_callbacks, 'textField'),
-                'page' => 'alecad_plugin',
+                'page' => 'alecad_cpt',
                 'section' => 'alecad_cpt_index',
                 'args' => array(
                     'option_name' => 'alecad_plugin_cpt',
-                    'label_for' => 'singular_name'
+                    'label_for' => 'singular_name',
+                    'placeholder' => 'e.g. Product'
                 )
             ),
             array(
                 'id' => 'plural_name',
                 'title' => 'Plural Name',
                 'callback' => array($this->cpt_callbacks, 'textField'),
-                'page' => 'alecad_plugin',
+                'page' => 'alecad_cpt',
                 'section' => 'alecad_cpt_index',
                 'args' => array(
                     'option_name' => 'alecad_plugin_cpt',
-                    'label_for' => 'plural_name'
+                    'label_for' => 'plural_name',
+                    'placeholder' => 'e.g.Products'
                 )
             ),
             array(
                 'id' => 'public',
                 'title' => 'Public',
                 'callback' => array($this->cpt_callbacks, 'checkboxField'),
-                'page' => 'alecad_plugin',
+                'page' => 'alecad_cpt',
                 'section' => 'alecad_cpt_index',
                 'args' => array(
                     'option_name' => 'alecad_plugin_cpt',
@@ -144,7 +147,7 @@ class CustomPostTypeController extends BaseController
                 'id' => 'has_archive',
                 'title' => 'Archive',
                 'callback' => array($this->cpt_callbacks, 'checkboxField'),
-                'page' => 'alecad_plugin',
+                'page' => 'alecad_cpt',
                 'section' => 'alecad_cpt_index',
                 'args' => array(
                     'option_name' => 'alecad_plugin_cpt',
