@@ -21,9 +21,8 @@ class CptCallbacks
         $name = $args['label_for'];
 		$option_name = $args['option_name'];
 		$input = get_option($option_name);
-        $value = $input[$name];
         
-        echo '<input type="text" class="regular-text" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="' . $value . '" placeholder="' . $args['placeholder'] . '" />';
+        echo '<input type="text" class="regular-text" id="' . $name . '" name="' . $option_name . '[test][' . $name . ']" value="" placeholder="' . $args['placeholder'] . '" />';
     }
 
 	public function checkboxField($args) {
@@ -33,8 +32,7 @@ class CptCallbacks
 		$option_name = $args['option_name'];
 		$checkbox = get_option($option_name);
 
-		$checked = isset($checkbox[$name]) ? ($checkbox[$name] ? true : false) : false;
-		echo '<div class="' . $classes . '"><input type="checkbox" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="1" class="" ' . ($checked ? 'checked' : '') . '><label for="' . $name . '"><div></div></label></div>';
+		echo '<div class="' . $classes . '"><input type="checkbox" id="' . $name . '" name="' . $option_name . '[test][' . $name . ']" value="" class="" /><label for="' . $name . '"><div></div></label></div>';
 	}
 
 }
